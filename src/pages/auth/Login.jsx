@@ -30,8 +30,8 @@ const Login = () => {
                                 <button className='bg-[#F7941D] text-white w-full px-5 py-2 rounded-xl font-semibold '>Login</button>
                             </div>
                             <div className='flex gap-1 flex-col'>
-                            <div className='flex gap-1 cursor-default'>Forgot password ?<div className='text-[#005AAA] underline cursor-pointer'>Click here</div></div>
-                            <div className='flex gap-1 cursor-default'>Don’t have an account ? <div className='text-[#005AAA] underline cursor-pointer'>Register here</div></div>
+                            <div className='flex gap-1 cursor-default'>Forgot password ?<div className='text-[#005AAA] underline cursor-pointer underline-offset-2'>Click here</div></div>
+                            <div className='flex gap-1 cursor-default'>Don’t have an account ? <div className='text-[#005AAA] underline underline-offset-2 cursor-pointer'>Register here</div></div>
                             </div>
                         </div>
                     </div>
