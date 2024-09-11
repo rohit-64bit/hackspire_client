@@ -1,10 +1,45 @@
 import React from 'react'
 import Home from './pages/auth/Home'
+import { Routes, Route } from 'react-router-dom'
+import Login from './pages/auth/Login';
+import Register from './pages/auth/Register';
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Room from './pages/common/Room';
+import RoomSetup from './pages/common/RoomSetup';
+import PanelLayout from './layouts/PanelLayout';
+import Dashboard from './pages/user/Dashboard';
 
 const App = () => {
   return (
     <>
-      <Home />
+      <Routes>
+
+        <Route path='/' element={
+          <Home />
+        } />
+
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+
+        <Route path='/room-setup' element={<RoomSetup />} />
+        <Route path='/room/:roomID' element={<Room />} />
+
+        <Route path='/dashboard' element={<PanelLayout Page={Dashboard} />} />
+
+      </Routes>
+
+      <ToastContainer
+        autoClose={3000}
+        hideProgressBar={true}
+        draggable
+        pauseOnHover
+        draggableDirection='right'
+        position='top-right'
+        limit={3}
+      />
+
     </>
   )
 }
