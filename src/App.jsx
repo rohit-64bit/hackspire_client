@@ -1,10 +1,10 @@
 import React from 'react'
-import Register from './pages/auth/Register'
+import Home from './pages/auth/Home'
 
 const App = () => {
   return (
     <>
-      <Register />
+      <Home />
     </>
   )
 }
