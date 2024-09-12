@@ -10,6 +10,7 @@ import Room from './pages/common/Room';
 import RoomSetup from './pages/common/RoomSetup';
 import PanelLayout from './layouts/PanelLayout';
 import Dashboard from './pages/user/Dashboard';
+import Chatbot from './components/Chatbot'; 
 
 const App = () => {
   return (
@@ -39,7 +40,7 @@ const App = () => {
         position='top-right'
         limit={3}
       />
-
+      <Chatbot />
     </>
   )
 }
