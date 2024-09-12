@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../../components/Header';
 import home from '../../assets/images/home.svg'
+import { Link } from 'react-router-dom';
 
 
 const Home = () => {
@@ -15,7 +16,7 @@ const Home = () => {
               <div className='text-3xl xl:text-5xl font-bold'>Seamless Video Conferencing for AICTE</div>
               <div className='xl:text-xl'>Engage and collaborate with ease. Connect, collaborate, and engage.</div>
               <div className='flex gap-2'>
-                <div className='px-4 rounded-md cursor-pointer bg-[#F7941D] py-2'>Sign In</div>
+                <Link to='/login' className='px-4 rounded-md cursor-pointer bg-[#F7941D] py-2'>Sign In</Link>
                 <div className='px-4 rounded-md cursor-pointer bg-white text-black py-2'>Register</div>
               </div>
               <div className='w-[80%] border border-white'></div>

@@ -6,4 +6,12 @@
     .card-shadow {
         box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
     }
+
+    .main {
+        @apply w-full h-full p-5 md:p-10 overflow-x-auto overflow-y-scroll bg-slate-100;
+    }
+
+    .page {
+        @apply min-h-screen max-h-max px-5 sm:px-7 md:px-10 lg:px-20;
+    }
 }

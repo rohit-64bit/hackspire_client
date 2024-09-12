@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import logo from '../../assets/images/logo_new 2.png'
 import { API_SERVER_URL } from '../../services/Helpers'
 import { toast } from 'react-toastify'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import login from '../../assets/images/login.svg'
 import { FiCheckSquare } from "react-icons/fi";
 
 
 const Login = () => {
+
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         email: '',
@@ -35,6 +37,7 @@ const Login = () => {
                 if (json.success) {
                     localStorage.setItem('user-token', json.token)
                     toast.success(json.message)
+                    navigate('/user/dashboard')
                 } else {
                     toast.error(json.message)
                 }
@@ -59,6 +62,7 @@ const Login = () => {
                 if (json.success) {
                     localStorage.setItem('admin-auth-token', json.token)
                     toast.success(json.message)
+                    navigate('/admin/dashboard')
                 } else {
                     toast.error(json.message)
                 }
@@ -124,8 +128,11 @@ const Login = () => {
 
                             <div className='flex gap-1 flex-col'>
 
-                                <div className='flex gap-1 cursor-default'>Forgot password ?<div className='text-[#005AAA] underline cursor-pointer underline-offset-2'>Click here</div></div>
-                                <div className='flex gap-1 cursor-default'>Don’t have an account ? <div className='text-[#005AAA] underline underline-offset-2 cursor-pointer'>Register here</div></div>
+                                <div className='flex gap-1 cursor-default'>Forgot password ?<Link
+                                    to='/forget-password' className='text-[#005AAA] underline cursor-pointer underline-offset-2'>Click here</Link></div>
+
+                                <div className='flex gap-1 cursor-default'>Don’t have an account ? <Link to='/register' className='text-[#005AAA] underline underline-offset-2 cursor-pointer'>Register here</Link>
+                                </div>
                             </div>
                         </form>
                     </div>
