@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from '../../assets/images/logo_new 2.png'
+import register from '../../assets/images/register.svg'
 
 const Register = () => {
     return (
@@ -42,7 +43,13 @@ const Register = () => {
                 </div>
 
                 <div className='h-[100vh] w-[50%] bg-[#005AAA] rounded-l-3xl hidden lg:block'>
-                    <div></div>
+                    <div className='text-white flex justify-end pt-10 px-5'>
+                        <div className='bg-[#F7941D] px-5 py-2.5 cursor-pointer border border-[#AC5E00]'>Sign In</div>
+                        <div className='bg-[#F7941D] px-5 py-2.5 cursor-pointer border border-[#AC5E00]'>Support</div>
+                    </div>
+                    <div className='flex pt-10 justify-center'>
+                        <img className='w-[60%]' src={register} alt="" />
+                    </div>
                 </div>
             </div>
         </>
