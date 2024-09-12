@@ -1,10 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaCalendarDays } from "react-icons/fa6";
 import { TbSquarePlus } from "react-icons/tb";
 import { SiGooglemeet } from "react-icons/si";
-
+import { API_SERVER_URL } from '../../services/Helpers';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Dashboard = () => {
+
+    const navigate = useNavigate()
+
+    const [meetCode, setMeetCode] = useState('')
+
+    const verifyRoom = (e) => {
+
+        e.preventDefault()
+
+        fetch(`${API_SERVER_URL}meeting/verify-room-id`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'auth-token': localStorage.getItem('user-token')
+            },
+            body: JSON.stringify({
+                roomId: meetCode
+            }),
+        })
+            .then(res => res.json())
+            .then(json => {
+                if (json.success) {
+                    toast.success(json.message)
+                    navigate(`/room/${meetCode}`)
+                    toast.success('Redirecting to meeting room')
+                } else {
+                    toast.error('Invalid room id')
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                toast.error('Something went wrong')
+            });
+
+    }
+
     return (
         <>
             <main className='main'>
@@ -16,33 +54,22 @@ const Dashboard = () => {
                     <div className='lg:w-[50%] h-[80vh] lg:h-[70vh] flex flex-col gap-6'>
 
                         <div className='h-[50%] rounded-xl card-shadow p-5'>
-                            <form className='w-full flex flex-col items-center '>
-                                <div className='flex flex-col w-[80%] md:w-[60%]'>
-                                    <label className='pl-4 font-semibold' htmlFor="">Meet ID</label>
-                                    <input name='password' className='px-4 py-2 lg:py-1.5 xl:py-2 rounded-xl outline-none bg-gray-100 border focus:border-black' type="text" placeholder='' />
+                            <form method='POST' onSubmit={verifyRoom} className='w-full flex flex-col items-center '>
+
+                                <div className='flex flex-col w-[80%] md:w-full'>
+                                    <label className='font-semibold text-lg pb-5' htmlFor="">Meet ID</label>
+                                    <input
+                                        value={meetCode}
+                                        onChange={(e) => setMeetCode(e.target.value)}
+                                        name='password' className='px-4 py-2 lg:py-1.5 xl:py-2 rounded-xl outline-none bg-gray-100 border focus:border-black' type="text" placeholder='Enter room id' />
                                 </div>
 
-                                <div className='flex gap-5 justify-center items-center'>
-
-                                    <div className='border w-[5vw] h-0 rounded-full' />
-
-                                    <div>
-                                        or
-                                    </div>
-
-                                    <div className='border w-[5vw] h-0 rounded-full' />
-
-                                </div>
-
-                                <div className='flex flex-col w-[80%] md:w-[60%]'>
-                                    <label className='pl-4 font-semibold' htmlFor="">Meet Link</label>
-                                    <input name='password' className='px-4 py-2 lg:py-1.5 xl:py-2 rounded-xl outline-none bg-gray-100 border focus:border-black' type="text" placeholder='' />
-                                </div>
-                                <button className='bg-[#005AAA] mt-4 w-max px-5 text-white py-2 lg:py-1.5 xl:py-2  rounded-xl font-semibold '>
+                                <button type='submit' className='bg-[#005AAA] mt-4 w-max px-5 text-white py-2 lg:py-1.5 xl:py-2  rounded-xl font-semibold '>
                                     Join Meeting
                                 </button>
+
                             </form>
-                            <div></div>
+
                         </div>
 
                         <div className='h-[50%] rounded-xl card-shadow flex items-center justify-around'>

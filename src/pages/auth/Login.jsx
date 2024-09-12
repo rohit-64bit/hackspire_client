@@ -128,8 +128,11 @@ const Login = () => {
 
                             <div className='flex gap-1 flex-col'>
 
-                                <div className='flex gap-1 cursor-default'>Forgot password ?<div className='text-[#005AAA] underline cursor-pointer underline-offset-2'>Click here</div></div>
-                                <div className='flex gap-1 cursor-default'>Don’t have an account ? <div className='text-[#005AAA] underline underline-offset-2 cursor-pointer'>Register here</div></div>
+                                <div className='flex gap-1 cursor-default'>Forgot password ?<Link
+                                    to='/forget-password' className='text-[#005AAA] underline cursor-pointer underline-offset-2'>Click here</Link></div>
+
+                                <div className='flex gap-1 cursor-default'>Don’t have an account ? <Link to='/register' className='text-[#005AAA] underline underline-offset-2 cursor-pointer'>Register here</Link>
+                                </div>
                             </div>
                         </form>
                     </div>

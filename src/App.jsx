@@ -14,6 +14,7 @@ import MainState from './contexts/MainState';
 import { SocketProvider } from './contexts/SocketProvider';
 import MeetingDetails from './pages/user/MeetingDetails';
 import UserProfile from './pages/user/UserProfile';
+import ForgetPassword from './pages/auth/ForgetPassword';
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
 
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
+            <Route path='/forget-password' element={<ForgetPassword />} />
 
             <Route path='/room-setup' element={<RoomSetup />} />
             <Route path='/room/:roomID' element={<Room />} />

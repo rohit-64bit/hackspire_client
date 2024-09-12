@@ -51,8 +51,8 @@ const Room = () => {
 
     const handleCallUser = useCallback(async () => {
         const stream = await navigator.mediaDevices.getUserMedia({
-            audio: audioStatus,
-            video: videoStatus,
+            audio: true,
+            video: true,
         });
         const offer = await peer.getOffer();
         socket.emit("user:call", { to: remoteSocketId, offer });
@@ -63,8 +63,8 @@ const Room = () => {
         async ({ from, offer }) => {
             setRemoteSocketId(from);
             const stream = await navigator.mediaDevices.getUserMedia({
-                audio: audioStatus,
-                video: videoStatus,
+                audio: true,
+                video: true,
             });
             setMyStream(stream);
             console.log('Incoming Call', from, offer);
@@ -151,7 +151,9 @@ const Room = () => {
 
     useEffect(() => {
         handleCallUser();
-    })
+    }, [
+        videoStatus, audioStatus
+    ])
 
     return (
         <>

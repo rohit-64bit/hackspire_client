@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import ScheduleMeeting from '../../components/ScheduleMeeting'
 import UpcomingMeeting from '../../components/UpcomingMeeting'
 import PreviousMeeting from '../../components/PreviousMeeting'
+import MainContext from '../../contexts/MainContext'
 
 const MeetingDetails = () => {
 
@@ -13,7 +14,14 @@ const MeetingDetails = () => {
 
     const [renderData, setRenderData] = useState('upcoming')
 
+    const {
+        upcomingMeeting,
+        fetchUpcomingMeeting
+    } = useContext(MainContext)
 
+    useEffect(() => {
+        fetchUpcomingMeeting()
+    }, [])
 
     return (
         <main className="main">
@@ -38,13 +46,13 @@ const MeetingDetails = () => {
                 {
                     renderData === 'upcoming' && (
                         <div className='flex flex-col gap-5 h-[60vh] overflow-auto py-10'>
-                            <UpcomingMeeting />
-                            <UpcomingMeeting />
-                            <UpcomingMeeting />
-                            <UpcomingMeeting />
-                            <UpcomingMeeting />
-                            <UpcomingMeeting />
-                            <UpcomingMeeting />
+                            {
+                                upcomingMeeting?.map((data) => {
+                                    return (
+                                        <UpcomingMeeting key={data._id} data={data} />
+                                    )
+                                })
+                            }
                         </div>
                     )
                 }

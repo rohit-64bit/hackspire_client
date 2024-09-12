@@ -3,8 +3,6 @@ import React from 'react'
 
 const RoomSetup = () => {
 
-    
-
     return (
         <div className='flex justify-center items-center h-screen'>
 
