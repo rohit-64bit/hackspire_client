@@ -1,17 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import MainContext from './MainContext'
 
-export const useSocket = () => {
-
-}
-
-export const usePeer = () => {
-
-}
-
 const MainState = ({ children }) => {
+
+    const [userProfile, setUserProfile] = useState({})
+
     return (
-        <MainContext.Provider value={{}}>
+        <MainContext.Provider value={{
+            userProfile,
+            setUserProfile
+        }}>
             {children}
         </MainContext.Provider>
     )

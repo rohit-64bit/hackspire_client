@@ -10,36 +10,41 @@ import Room from './pages/common/Room';
 import RoomSetup from './pages/common/RoomSetup';
 import PanelLayout from './layouts/PanelLayout';
 import Dashboard from './pages/user/Dashboard';
+import MainState from './contexts/MainState';
+import { SocketProvider } from './contexts/SocketProvider';
 
 const App = () => {
   return (
     <>
-      <Routes>
+      <MainState>
+        <SocketProvider>
+          <Routes>
 
-        <Route path='/' element={
-          <Home />
-        } />
+            <Route path='/' element={
+              <Home />
+            } />
 
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<Register />} />
 
-        <Route path='/room-setup' element={<RoomSetup />} />
-        <Route path='/room/:roomID' element={<Room />} />
+            <Route path='/room-setup' element={<RoomSetup />} />
+            <Route path='/room/:roomID' element={<Room />} />
 
-        <Route path='/dashboard' element={<PanelLayout Page={Dashboard} />} />
+            <Route path='/user/dashboard' element={<PanelLayout Page={Dashboard} />} />
 
-      </Routes>
+          </Routes>
 
-      <ToastContainer
-        autoClose={3000}
-        hideProgressBar={true}
-        draggable
-        pauseOnHover
-        draggableDirection='right'
-        position='top-right'
-        limit={3}
-      />
-
+          <ToastContainer
+            autoClose={3000}
+            hideProgressBar={true}
+            draggable
+            pauseOnHover
+            draggableDirection='right'
+            position='top-right'
+            limit={3}
+          />
+        </SocketProvider>
+      </MainState>
     </>
   )
 }
