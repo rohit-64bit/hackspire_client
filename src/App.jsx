@@ -10,7 +10,7 @@ import Room from './pages/common/Room';
 import RoomSetup from './pages/common/RoomSetup';
 import PanelLayout from './layouts/PanelLayout';
 import Dashboard from './pages/user/Dashboard';
-import Chatbot from './components/Chatbot'; 
+import Chatbot from '../components/Chatbot'; 
 import MainState from './contexts/MainState';
 import { SocketProvider } from './contexts/SocketProvider';
 import MeetingDetails from './pages/user/MeetingDetails';
