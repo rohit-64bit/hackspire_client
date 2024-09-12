@@ -3,6 +3,9 @@ import logo from '../../assets/images/logo_new 2.png'
 import { API_SERVER_URL } from '../../services/Helpers'
 import { toast } from 'react-toastify'
 import { Link } from 'react-router-dom'
+import login from '../../assets/images/login.svg'
+import { FiCheckSquare } from "react-icons/fi";
+
 
 const Login = () => {
 
@@ -121,19 +124,35 @@ const Login = () => {
 
                             <div className='flex gap-1 flex-col'>
 
-                            <div className='flex gap-1 cursor-default'>Forgot password ?<div className='text-[#005AAA] underline cursor-pointer underline-offset-2'>Click here</div></div>
-                            <div className='flex gap-1 cursor-default'>Don’t have an account ? <div className='text-[#005AAA] underline underline-offset-2 cursor-pointer'>Register here</div></div>
-
-                                <div className='flex gap-1 cursor-default'>Forgot password ?<Link to='/forget-password' className='text-[#005AAA] underline cursor-pointer'>Click here</Link></div>
-                                <div className='flex gap-1 cursor-default'>Don’t have an account ? <Link to='/register' className='text-[#005AAA] underline'>Register here</Link></div>
-
+                                <div className='flex gap-1 cursor-default'>Forgot password ?<div className='text-[#005AAA] underline cursor-pointer underline-offset-2'>Click here</div></div>
+                                <div className='flex gap-1 cursor-default'>Don’t have an account ? <div className='text-[#005AAA] underline underline-offset-2 cursor-pointer'>Register here</div></div>
                             </div>
                         </form>
                     </div>
                 </div>
 
                 <div className='h-[100vh] w-[50%] bg-[#005AAA] rounded-l-3xl hidden lg:block'>
-                    <div></div>
+                    <div className='text-white flex justify-end pt-10 px-5'>
+                        <div className='bg-[#F7941D] px-5 py-2.5 cursor-pointer border border-[#AC5E00]'>About</div>
+                        <div className='bg-[#F7941D] px-5 py-2.5 cursor-pointer border border-[#AC5E00]'>Support</div>
+                    </div>
+                    <div className='flex items-center justify-center flex-col pt-16'>
+                        <img className='w-[50%]' src={login} alt="" />
+                        <div className='flex flex-col gap-3'>
+                            <div className='flex items-center gap-2'>
+                                <div className='text-[#00ED4F]'><FiCheckSquare style={{ fontSize: 25 }} /></div>
+                                <div className='text-white'>Sign up and register yourself first</div>
+                            </div>
+                            <div className='flex items-center gap-2'>
+                                <div className='text-[#00ED4F]'><FiCheckSquare style={{ fontSize: 25 }} /></div>
+                                <div className='text-white'>Sign up and register yourself first</div>
+                            </div>
+                            <div className='flex items-center gap-2'>
+                                <div className='text-[#00ED4F]'><FiCheckSquare style={{ fontSize: 25 }} /></div>
+                                <div className='text-white'>Sign up and register yourself first</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
