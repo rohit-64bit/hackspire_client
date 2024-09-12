@@ -151,7 +151,7 @@ const Room = () => {
 
     useEffect(() => {
         handleCallUser();
-    }, [])
+    })
 
     return (
         <>
@@ -169,7 +169,24 @@ const Room = () => {
                             controls={false}
                             height='100%'
                             width='100%'
+                            className='scale-x-[-1]'
                         />
+
+                        {
+                            remoteStreams.map((stream, index) => {
+                                return (
+                                    <ReactPlayer
+                                        key={index}
+                                        url={stream} // video stream
+                                        muted
+                                        playing
+                                        controls={false}
+                                        height='100%'
+                                        width='100%'
+                                    />
+                                )
+                            })
+                        }
 
                     </div>
 
